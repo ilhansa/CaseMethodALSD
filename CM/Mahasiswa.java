@@ -15,5 +15,6 @@ public class Mahasiswa {
         System.out.println("Nim: " + nim);
         System.out.println("Nama: " + nama);
         System.out.println("Prodi: " + prodi);
+        //poopopo
     }
 }
