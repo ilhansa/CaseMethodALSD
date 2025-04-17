@@ -16,4 +16,8 @@ public class MataKuliah {
         System.out.println("Nama Matkul: " + namaMK);
         System.out.println("Jumlah sks: " + sks);
     }
+    void tampilkanbolo() {
+        System.out.println("kode sib: ");
+        System.out.println("ASTAGFIRULLAH ");
+    }
 }
