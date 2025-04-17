@@ -1,15 +1,15 @@
 package CM;
 
 public class DaftarMahasiswa {
-    Mahasiswa[] listMhs;
+    Penilaian[] listMhs;
     int idx;
 
     DaftarMahasiswa(int jumMhs) {
-        listMhs = new Mahasiswa[jumMhs];
+        listMhs = new Penilaian[jumMhs];
         idx=0;
     }
 
-    void tambah(Mahasiswa mhs) {
+    void tambah(Penilaian mhs) {
         if (idx < listMhs.length) {
             listMhs[idx] = mhs;
             idx++;
@@ -18,10 +18,33 @@ public class DaftarMahasiswa {
         }
     }
 
-    void tampil() {
-        for (Mahasiswa mhs : listMhs) {
-            mhs.tampilInformasi();
+    void tampilMahasiswa() {
+        for (Penilaian mhs : listMhs) {
+            mhs.mahasiswa.tampilInformasi();
             System.out.println("-------------");
         }
+    }
+
+    void tampilMataKuliah() {
+        for (Penilaian mhs : listMhs) {
+            mhs.mataKuliah.tampilMataKuliah();
+            System.out.println("-------------");
+        }
+    }
+
+    void bubbleSort() {
+        for (int i = 0; i < listMhs.length - 1; i++) {
+            for (int j = 0; j < listMhs.length - i; j++) {
+                if(listMhs[j].nilaiAkhir > listMhs [j - 1].nilaiAkhir) {
+                    Penilaian tmp = listMhs[j];
+                    listMhs[j] = listMhs[j - 1];
+                    listMhs[j - 1] = tmp;
+                }
+            }
+        }
+    }
+
+    void tampilkanDataPenilaian() {
+        System.out.println("Test");    
     }
 }
