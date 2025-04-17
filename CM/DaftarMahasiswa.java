@@ -44,7 +44,8 @@ public class DaftarMahasiswa {
         }
     }
 
-    void tampilkanDataPenilaian() {
-        System.out.println("Test");    
+    void tampilkanDataPenilaian() { //hgduagdcuahscd
+        System.out.println("Tet");    
+        System.out.println("woe");
     }
 }
