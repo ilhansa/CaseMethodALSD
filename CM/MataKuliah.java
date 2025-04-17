@@ -21,8 +21,4 @@ public class MataKuliah {
         System.out.println("kode sib: ");
         System.out.println("ASTAGFIRULLAH ");
     }
-    void tampilkanbolo() {
-        System.out.println("kode sib: ");
-        System.out.println("ASTAGFIRULLAH ");
-    }
 }
