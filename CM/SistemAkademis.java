@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class SistemAkademis {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        DaftarMahasiswa daftarMahasiswa = new DaftarMahasiswa(5);
-        DaftarMataKuliah daftarMataKuliah = new DaftarMataKuliah(3); 
 
         Mahasiswa mhs1 = new Mahasiswa("2201", "Ali Rahman", "Informatika");
         Mahasiswa mhs2 = new Mahasiswa("2202", "Budi Santoso", "Informatika");
@@ -24,36 +22,40 @@ public class SistemAkademis {
             mk1, mk2, mk3
         };
     
-        Penilaian nilaiMhs1 = new Penilaian(mhs1, mk1, 80, 85, 90);
-        Penilaian nilaiMhs2 = new Penilaian(mhs1, mk2, 60, 75, 70);
-        Penilaian nilaiMhs3 = new Penilaian(mhs2, mk1, 75, 70, 80);
-        Penilaian nilaiMhs4 = new Penilaian(mhs3, mk2, 85, 90, 95);
-        Penilaian nilaiMhs5 = new Penilaian(mhs3, mk3, 80, 90, 65);
+        Penilaian[] listPenilaian = {
+            new Penilaian(mhs1, mk1, 80, 85, 90),
+            new Penilaian(mhs1, mk2, 60, 75, 70),
+            new Penilaian(mhs2, mk1, 75, 70, 80),
+            new Penilaian(mhs3, mk2, 85, 90, 95),
+            new Penilaian(mhs3, mk3, 80, 90, 65)
+        };
 
-        // Menu 1
-        daftarMataKuliah.tambah(mk1);
-        daftarMataKuliah.tambah(mk2);
-        daftarMataKuliah.tambah(mk3);
+        DaftarMahasiswa daftarMahasiswa = new DaftarMahasiswa(listPenilaian, listMhs);
 
-        // Menu 2
-        daftarMahasiswa.tambah(nilaiMhs1);
-        daftarMahasiswa.tambah(nilaiMhs2);
-        daftarMahasiswa.tambah(nilaiMhs3);
-        daftarMahasiswa.tambah(nilaiMhs4);
-        daftarMahasiswa.tambah(nilaiMhs5);
+        // // tambah data mahasiswa
+        // daftarMahasiswa.tambahMhs(mhs1);
+        // daftarMahasiswa.tambahMhs(mhs2);
+        // daftarMahasiswa.tambahMhs(mhs3);
+
+        // // tambah data hasil penilaian
+        // daftarMahasiswa.tambah(nilaiMhs1);
+        // daftarMahasiswa.tambah(nilaiMhs2);
+        // daftarMahasiswa.tambah(nilaiMhs3);
+        // daftarMahasiswa.tambah(nilaiMhs4);
+        // daftarMahasiswa.tambah(nilaiMhs5);
      
-        // Menu 3
-        daftarMahasiswa.tampilMahasiswa();
-        daftarMataKuliah.tampilDataMataKuliah();
-        daftarMahasiswa.tampilkanDataPenilaian();
+        // // Menu 3
+        // daftarMahasiswa.tampilMahasiswa();
+        // daftarMataKuliah.tampilDataMataKuliah();
+        // daftarMahasiswa.tampilkanDataPenilaian();
         
-        // Menu 4
-        daftarMahasiswa.bubbleSort();
-        daftarMahasiswa.tampilkanDataPenilaian();
+        // // Menu 4
+        // daftarMahasiswa.bubbleSort();
+        // daftarMahasiswa.tampilkanDataPenilaian();
 
-        // Menu 5
-        daftarMahasiswa.sortByNIM();
-        daftarMahasiswa.searchByNIM("2202");
+        // // Menu 5
+        // daftarMahasiswa.sortByNIM();
+        // daftarMahasiswa.searchByNIM("2202");
     
 
         int pilihan;
@@ -67,7 +69,7 @@ public class SistemAkademis {
             System.out.println("0. Keluar");
             System.out.print("Pilih menu: ");
             pilihan = input.nextInt();
-            input.nextLine(); // Buat buang newline
+            input.nextLine();
 
             switch (pilihan) {
                 case 1:
@@ -94,15 +96,15 @@ public class SistemAkademis {
 
                 case 4:
                     System.out.println("\n--- Data Penilaian Setelah Diurutkan Berdasarkan Nilai Akhir ---");
-                    daftarMahasiswa.bubbleSort();
+                    daftarMahasiswa.bubbleSort(); // descending
                     daftarMahasiswa.tampilkanDataPenilaian();
                     break;
 
                 case 5:
                     System.out.print("Masukkan NIM yang dicari: ");
-                    String nimDesc = input.nextLine();
-                    daftarMahasiswa.sortByNIM(); // Descending sort
-                    daftarMahasiswa.searchByNIM(nimDesc);
+                    String nim = input.nextLine();
+                    daftarMahasiswa.sortByNIM(); // bubble sort ascending
+                    daftarMahasiswa.searchByNIM(nim);
                     break;
 
                 case 0:

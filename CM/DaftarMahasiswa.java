@@ -2,20 +2,11 @@ package CM;
 
 public class DaftarMahasiswa {
     Penilaian[] listMhs;
-    int idx;
+    Mahasiswa[] arrMhs;
 
-    DaftarMahasiswa(int jumMhs) {
-        listMhs = new Penilaian[jumMhs];
-        idx=0;
-    }
-
-    void tambah(Penilaian mhs) {
-        if (idx < listMhs.length) {
-            listMhs[idx] = mhs;
-            idx++;
-        } else {
-            System.out.println("SEK NKO");
-        }
+    DaftarMahasiswa(Penilaian[] listmhs, Mahasiswa[] arrmhs) {
+       listMhs = listmhs;
+       arrMhs = arrmhs;
     }
 
     void tampilMahasiswa() {
@@ -25,14 +16,14 @@ public class DaftarMahasiswa {
         }
     }
 
-    void bubbleSort() { // Mengurutkan secara descending (terbesar ke terkecil)
+    void bubbleSort() { // descending
         // Hitung nilai akhir semua dulu
-        for (int i = 0; i < idx; i++) {
+        for (int i = 0; i < listMhs.length; i++) {
             listMhs[i].hitungNilaiAkhir();
         }
     
-        for (int i = 0; i < idx - 1; i++) {
-            for (int j = 0; j < idx - i - 1; j++) {
+        for (int i = 0; i < listMhs.length - 1; i++) {
+            for (int j = 0; j < listMhs.length - i - 1; j++) {
                 if (listMhs[j].nilaiAkhir < listMhs[j + 1].nilaiAkhir) {
                     // Tukar posisi jika nilai akhir lebih kecil dari berikutnya
                     Penilaian tmp = listMhs[j];
@@ -54,13 +45,14 @@ public class DaftarMahasiswa {
         }
     }
 
-    void sortByNIM() { // ascending
-        for (int i = 0; i < idx - 1; i++) {
-            for (int j = 0; j < idx - i - 1; j++) {
-                if (listMhs[j].mahasiswa.nim.compareTo(listMhs[j + 1].mahasiswa.nim) > 0) {
-                    Penilaian tmp = listMhs[j];
-                    listMhs[j] = listMhs[j + 1];
-                    listMhs[j + 1] = tmp;
+    void sortByNIM() { // bubble sort ascending
+        // sorting berdasarkan nim
+        for (int i = 0; i < arrMhs.length - 1; i++) {
+            for (int j = 0; j < arrMhs.length - i - 1; j++) {
+                if (arrMhs[j].nim.compareTo(arrMhs[j + 1].nim) > 0) {
+                    Mahasiswa tmp = arrMhs[j];
+                    arrMhs[j] = arrMhs[j + 1];
+                    arrMhs[j + 1] = tmp;
                 }
             }
         }
@@ -68,7 +60,7 @@ public class DaftarMahasiswa {
 
     void searchByNIM(String nimDicari) {
         int kiri = 0;
-        int kanan = idx - 1;
+        int kanan = arrMhs.length - 1;
     
         while (kiri <= kanan) {
             int tengah = (kiri + kanan) / 2;
@@ -78,11 +70,9 @@ public class DaftarMahasiswa {
     
             if (banding == 0) {
                 System.out.println("Mahasiswa ditemukan:");
-                System.out.println("NIM   : " + listMhs[tengah].mahasiswa.nim);
-                System.out.println("Nama  : " + listMhs[tengah].mahasiswa.nama);
-                System.out.println("Prodi : " + listMhs[tengah].mahasiswa.prodi);
-                System.out.println("Mata Kuliah : " + listMhs[tengah].mataKuliah.namaMK);
-                listMhs[tengah].hitungNilaiAkhir(); // tampilkan nilai akhir juga kalau perlu
+                System.out.println("NIM   : " + arrMhs[tengah].nim);
+                System.out.println("Nama  : " + arrMhs[tengah].nama);
+                System.out.println("Prodi : " + arrMhs[tengah].prodi);
                 return;
             } else if (banding < 0) {
                 kiri = tengah + 1;
