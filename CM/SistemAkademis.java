@@ -61,8 +61,8 @@ public class SistemAkademis {
         int pilihan;
         do {
             System.out.println("\n===== MENU SIAKAD =====");
-            System.out.println("1. Tampilkan Semua Data Mata Kuliah");
-            System.out.println("2. Tampilkan Semua Data Mahasiswa");
+            System.out.println("1. Tampilkan Semua Data Mahasiswa");
+            System.out.println("2. Tampilkan Semua Data Mata Kuliah");
             System.out.println("3. Tampilkan Data Penilaian");
             System.out.println("4. Urutkan Mahasiswa Berdasarkan Nilai Akhir (Descending)");
             System.out.println("5. Cari Mahasiswa Berdasarkan NIM");
