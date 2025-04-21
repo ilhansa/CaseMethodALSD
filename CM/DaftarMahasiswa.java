@@ -64,10 +64,14 @@ public class DaftarMahasiswa {
     
         while (kiri <= kanan) {
             int tengah = (kiri + kanan) / 2;
-            String nimTengah = listMhs[tengah].mahasiswa.nim;
+            String nimTengah = arrMhs[tengah].nim;
     
             int banding = nimTengah.compareTo(nimDicari);
-    
+            // compare to
+            // nilai negatif jika string pertama lebih kecil
+            // nilai positif jika string pertama lebih besar
+            // 0 jika string sama
+            
             if (banding == 0) {
                 System.out.println("Mahasiswa ditemukan:");
                 System.out.println("NIM   : " + arrMhs[tengah].nim);
